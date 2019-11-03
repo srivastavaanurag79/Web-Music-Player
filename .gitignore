@@ -1,0 +1,8 @@
+*.pyc
+.DS_Store
+.idea
+staticfiles
+.env
+venv
+migrations
+db.sqlite3
