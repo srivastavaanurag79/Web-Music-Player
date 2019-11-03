@@ -1,0 +1,62 @@
+{% load staticfiles %}
+
+<!--albums-->
+<!-- pop-up-box -->
+    <link href=" {%  static 'css/popuo-box.css' %} " rel="stylesheet" type="text/css" media="all">
+    <script src=" {% static 'js/jquery.magnific-popup.js' %} " type="text/javascript"></script>
+     <script>
+            $(document).ready(function() {
+            $('.popup-with-zoom-anim').magnificPopup({
+                type: 'inline',
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in'
+            });
+            });
+    </script>
+<!--//pop-up-box -->
+
+
+<div class="albums">
+    <div class="tittle-head">
+        <h3 class="tittle">New Releases <span class="new">New</span></h3>
+        <a href="/"><h4 class="tittle">See all</h4></a>
+        <div class="clearfix"> </div>
+    </div>
+
+
+    {% for v in videos %}
+
+
+        <div class="col-md-3 content-grid
+        {% if forloop.counter|divisibleby:4 %}
+            last-grid
+        {% endif %} ">
+            <a class="play-icon popup-with-zoom-anim" href="#video-{{ forloop.counter }}">
+                {% with 'posters/cover arts/'|add:v.image as  image%}
+                <img src=" {% static image %} " title="{{ v }}">
+                {% endwith %}
+            </a>
+            <a class="button play-icon popup-with-zoom-anim" href="#video-{{ forloop.counter }}"><i class="glyphicon glyphicon-play-circle"></i></a>
+            <a class="button play-icon popup-with-zoom-anim" href="#video-{{ forloop.counter }}">Watch now</a>
+        </div>
+
+        <!-- Video -->
+        <div id="video-{{ forloop.counter }}" class="mfp-hide ">
+            <iframe src="{{ v.url }}"></iframe>
+        </div>
+
+    {% endfor %}
+
+
+    <div class="clearfix"> </div>
+
+    {% include 'hPlay/widgets/featured_artists.html' %}
+
+</div>
+
