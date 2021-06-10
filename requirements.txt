@@ -1,5 +1,5 @@
 django_adminplus==0.5
-Django==1.11.25
+Django==2.2.24
 requests==2.11.1
 dj_database_url==0.5.0
 djangorestframework==3.4.6
