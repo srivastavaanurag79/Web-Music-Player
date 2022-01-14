@@ -2,7 +2,7 @@ django_adminplus==0.5
 Django==2.2.26
 requests==2.11.1
 dj_database_url==0.5.0
-djangorestframework==3.4.6
+djangorestframework==3.11.2
 gunicorn==19.6.0
 whitenoise==3.2.1
 Pygments==2.7.4
